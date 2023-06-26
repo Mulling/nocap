@@ -1,0 +1,10 @@
+[submodule "zstd"]
+	path = zstd
+	url = git@github.com:facebook/zstd.git
+    branch = v1.5.5
+[submodule "busybox"]
+	path = busybox
+	url = git@github.com:mirror/busybox.git
+[submodule "linux"]
+	path = linux
+	url = git@github.com:Mulling/linux.git
