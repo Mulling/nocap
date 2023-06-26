@@ -1,13 +1,13 @@
 # nocap
-`nocap` short for no capslock, is an eBPF based application which allows complete control over the `input_event` function.
+`nocap`, short for no caps lock, is an eBPF based application which allows complete control over the `input_event` function.
 
 ## Why?
 <p align="center">
   <img src="./assets/IBM.png"/>
-  <i>IBM Model F Keyboard, Observe that the ctrl key is besides the A key. They took this from you.</i>
+  <i>IBM Model F Keyboard, Observe that the ctrl key is beside the A key. They took this from you.</i>
 </p>
 
-Remap ctrl over the capslock key in a way that does not depend on input read from `/dev/input*` (or libinput), meaning your remapped ctrl will stay remapped, even when using a kvm guest, or when using the linux console.
+Remap `ctrl` over the caps lock key in a way that does not depend on the input read from `/dev/input*` (libinput), meaning your remapped ctrl will stay remapped, even when using a kvm guest, or when using the Linux console.
 
 # Using:
 To make this work we require a custom Kernel.
@@ -20,8 +20,7 @@ TODO:
 $ make defconfig
 $ make menuconfig
 ```
-Navigate to: Busybox Settings > Build Options > Build BusyBox as a static binary (no shared libs) > yes
-
+Navigate to: Busybox Settings --> Build Options --> Build BusyBox as a static binary (no shared libs) --> yes
 ```shell
 $ make
 $ make install
