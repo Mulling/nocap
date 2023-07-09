@@ -1,7 +1,7 @@
-From 858a16b26c2bfdc87085bbbe9c5ba5f51f132f02 Mon Sep 17 00:00:00 2001
+From 9c90024fe2f18cea284dc2226761b991e5dfa2c2 Mon Sep 17 00:00:00 2001
 From: Mulling <lmulling@proton.me>
 Date: Sun, 9 Jul 2023 00:38:04 -0300
-Subject: [PATCH 2/2] drivers/input: Add basic BPF input proof-of-concept
+Subject: [PATCH 2/2] input: Add basic BPF input proof-of-concept
 
 Signed-off-by: Mulling <lmulling@proton.me>
 ---

@@ -1,7 +1,7 @@
-From 039e06fc08bb73b484343abfa39454e1b9225ed9 Mon Sep 17 00:00:00 2001
+From 8dfaa130d02a8a1136b90a7e23d2e1a9fc28a986 Mon Sep 17 00:00:00 2001
 From: Mulling <lmulling@proton.me>
 Date: Sat, 24 Jun 2023 02:11:12 -0300
-Subject: [PATCH 1/2] samples/bpf: Compile samples statically
+Subject: [PATCH 1/2] samples: Compile BPF samples statically
 
 Signed-off-by: Mulling <lmulling@proton.me>
 ---
