@@ -1,0 +1,34 @@
+From 039e06fc08bb73b484343abfa39454e1b9225ed9 Mon Sep 17 00:00:00 2001
+From: Mulling <lmulling@proton.me>
+Date: Sat, 24 Jun 2023 02:11:12 -0300
+Subject: [PATCH 1/2] samples/bpf: Compile samples statically
+
+Signed-off-by: Mulling <lmulling@proton.me>
+---
+ samples/bpf/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/samples/bpf/Makefile b/samples/bpf/Makefile
+index 615f24ebc..a0b23e4d2 100644
+--- a/samples/bpf/Makefile
++++ b/samples/bpf/Makefile
+@@ -193,6 +193,7 @@ endif
+ TPROGS_CFLAGS += -Wall -O2
+ TPROGS_CFLAGS += -Wmissing-prototypes
+ TPROGS_CFLAGS += -Wstrict-prototypes
++TPROGS_CFLAGS += -static
+ 
+ TPROGS_CFLAGS += -I$(objtree)/usr/include
+ TPROGS_CFLAGS += -I$(srctree)/tools/testing/selftests/bpf/
+@@ -206,7 +207,7 @@ TPROGS_CFLAGS += --sysroot=$(SYSROOT)
+ TPROGS_LDFLAGS := -L$(SYSROOT)/usr/lib
+ endif
+ 
+-TPROGS_LDLIBS			+= $(LIBBPF) -lelf -lz
++TPROGS_LDLIBS			+= $(LIBBPF) -lelf -lz -lzstd
+ TPROGLDLIBS_xdp_monitor		+= -lm
+ TPROGLDLIBS_xdp_redirect	+= -lm
+ TPROGLDLIBS_xdp_redirect_cpu	+= -lm
+-- 
+2.41.0
+
