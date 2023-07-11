@@ -14,7 +14,10 @@ Remap `ctrl` over the caps lock key in a way that does not depend on the input r
 Something similar exists under HID-BPF, but, it will only work for HID devices -- USB devices. My ThinkPad still uses i8042.
 
 # Using:
-TODO:
+To run a minimal Kernel with sample and test programs use `make` as below, see [Building](##Building) before:
+```shell
+$ make run
+```
 
 ## Building:
 To make this work we require a custom Kernel.
@@ -36,15 +39,6 @@ Copy the `nocap_defconfig` to `arch/x86/config/`
 $ cp nocap_defconfig linux/arch/x86/config/
 ```
 
-### zstd
-If your distro comes with `libzstd.a` skip this.
-```
-$ make
-```
-
-#### Patching:
-TODO:
-
 Build the Kernel (you will need the usual dependencies):
 ```shell
 $ make allnoconfig
@@ -53,13 +47,11 @@ $ make
 $ make headers_install
 ```
 
-## Generating ramfs:
-```shell
-$ usr/gen_initramfs.sh -o ../ramfs ../busybox/_install/ ../cpio
+### zstd
+If your distro comes with `libzstd.a` skip this.
 ```
-NOTE: `gen_initramfs.sh` needs to be ran from the Linux tree.
+$ make
+```
 
-## Running qemu:
-```
-$ qemu-system-x86_64 -nographic -append -kernel linux/arch/x86_64/boot/bzImage -initrd ramfs "console=ttyS0" -enable-kvm
-```
+### Patching:
+TODO:
