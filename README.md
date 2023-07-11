@@ -63,10 +63,3 @@ NOTE: `gen_initramfs.sh` needs to be ran from the Linux tree.
 ```
 $ qemu-system-x86_64 -nographic -append -kernel linux/arch/x86_64/boot/bzImage -initrd ramfs "console=ttyS0" -enable-kvm
 ```
-
-## TODO:
-- [ ] Automate the build process;
-- [ ] Improve the Kernel sample;
-- [ ] Generate busybox defconfig;
-- [ ] Generate input events from the eBPF program (currently we only change them);
-- [ ] Move documentation to it's own file;
