@@ -1,5 +1,4 @@
 - Improve the Kernel sample
-- Generate busybox defconfig
 - Generate input events from the eBPF program (currently we only change them)
 - Move documentation to it's own file
-- Automate Busybox, Linux and ZSTD "first" build
+- Automate Busybox, Linux and ZSTD "initial" build

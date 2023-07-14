@@ -9,9 +9,9 @@ Kernel patch series, and stuff, to allow eBPF programs to control input events.
   </p>
 </p>
 
-Remap `ctrl` over the caps lock key in a way that does not depend on the input read from evdev -- `/dev/input/eventX`, meaning your remapped `ctrl` will stay remapped, even when using a KVM guest, or when using the Linux console -- I think. The goal is to also allow for home-row mods, or anything really you can come up that respects the limitations of eBPF programs.
+Remap `ctrl` over the caps lock key in a way that does not depend on the input read from evdev -- `/dev/input/eventX`, meaning your remapped `ctrl` will stay remapped, even when using a KVM guest, or when using the Linux console. The goal is to also allow for home-row mods, or anything really you can come up that respects the limitations of eBPF programs.
 
-Something similar exists under HID-BPF, but, it will only work for HID devices -- USB devices. My ThinkPad still uses i8042.
+Something similar exists under HID-BPF, but, it will only work for HID devices (My ThinkPad still uses i8042), and can't generate input events at will.
 
 # Using:
 To run a minimal Kernel with sample and test programs use `make` as below, see [Building](##Building) before:
@@ -23,24 +23,25 @@ $ make run
 To make this work we require a custom Kernel.
 
 ### Busybox
+Copy the config `configs/busybox/config` to `busybox/.config`:
 ```shell
-$ make defconfig
-$ make menuconfig
+$ cp configs/busybox/config busybox/.config
 ```
-Navigate to: Busybox Settings --> Build Options --> Build BusyBox as a static binary (no shared libs) --> yes
+Build busybox (you will need the usual dependencies):
 ```shell
+$ cd busybox
 $ make
 $ make install
 ```
 
 ### Linux:
-Copy the `nocap_defconfig` to `arch/x86/config/`
+Copy the `nocap_defconfig` to `arch/x86/config/`:
 ```shell
-$ cp nocap_defconfig linux/arch/x86/config/
+$ cp configs/linux/nocap_defconfig linux/arch/x86/config/
 ```
-
 Build the Kernel (you will need the usual dependencies):
 ```shell
+$ cd linux
 $ make allnoconfig
 $ make nocap_defconfig
 $ make
