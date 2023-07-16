@@ -1,20 +1,18 @@
 # nocap
-Kernel patch series, and stuff, to allow eBPF programs to control input events.
+Kernel patch series to allow eBPF programs to control input events.
 
 ## Why?
 <p align="center">
-  <img src="./assets/IBM.png"/ width="75%" height="75%">
+  <img src="./assets/IBM.png"/ width="85%" height="85%">
   <p align="center">
       <i>IBM Model F Keyboard, Observe that the ctrl key is beside the A key. <b>They took this from you.</b></i>
   </p>
 </p>
 
-Remap `ctrl` over the caps lock key in a way that does not depend on the input read from evdev -- `/dev/input/eventX`, meaning your remapped `ctrl` will stay remapped, even when using a KVM guest, or when using the Linux console. The goal is to also allow for home-row mods, or anything really you can come up that respects the limitations of eBPF programs.
-
-Something similar exists under HID-BPF, but, it will only work for HID devices (My ThinkPad still uses i8042), and can't generate input events at will.
+Remap `ctrl` over the caps lock key in a way that does not depend on the input read from `/dev/input/eventX`, meaning, your remapped `ctrl` will stay remapped, even when using a KVM guest, or when using the Linux console. Something similar exists under HID-BPF, but, it will only work for HID devices.
 
 # Using:
-To run a minimal Kernel with sample and test programs use `make` as below, see [Building](##Building) before:
+To run a minimal Kernel with test programs use `make` as below, see [Building](##Building) before:
 ```shell
 $ make run
 ```
